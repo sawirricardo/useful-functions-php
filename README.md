@@ -73,3 +73,13 @@ function route_get_query_params(): array
     return $arr_res;
 }
 ```
+
+```php
+/**
+* Get Unique ID
+*/
+function id_get_unique(): string
+{
+    return base_convert(microtime(false), 10, 36); 
+}
+```
