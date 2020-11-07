@@ -1,4 +1,4 @@
-# useful-functions-php
+# Useful functions PHP (at least for me)
 List of all functions for PHP.
 
 ```php
@@ -46,3 +46,30 @@ return hash_hmac('sha256', $str_form_name, $_SESSION['token']);
 }
 ```
 
+```php
+/**
+* Validate token CSRF
+* @link https://stackoverflow.com/a/31683058/9478774
+* @param string $str_form_name
+* @param string $str_token
+* @return bool
+*/
+function token_validate_csrf(string $str_token,string $str_form_name="form"):bool
+{
+return hash_equals(token_get_csrf($str_form_name),$str_token);
+}
+```
+
+Route get query params
+```php
+/**
+* Route Get Query Params
+* @return array
+*/
+function route_get_query_params(): array
+{
+    $arr_res = [];
+    parse_str(parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY), $arr_res);
+    return $arr_res;
+}
+```
