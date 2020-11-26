@@ -83,3 +83,18 @@ function id_get_unique(): string
     return base_convert(microtime(false), 10, 36); 
 }
 ```
+
+```php
+/**
+* Redirect URL
+* @param string $url
+* @param int $statusCode
+* @url https://github.com/sawirricardo/useful-functions-php
+* @source https://stackoverflow.com/a/768472/9478774
+*/
+function url_redirect($url, $statusCode = 303)
+{
+   header('Location: ' . $url, true, $statusCode);
+   die();
+}
+```
